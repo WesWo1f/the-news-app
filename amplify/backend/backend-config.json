@@ -1,0 +1,43 @@
+{
+  "api": {
+    "apid2b35208": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "thenewsappc1cb9bd2"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "thenewsappc1cb9bd2": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_thenewsappc1cb9bd2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "thenewsappc1cb9bd2"
+        }
+      ]
+    },
+    "AMPLIFY_function_thenewsappc1cb9bd2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "thenewsappc1cb9bd2"
+        }
+      ]
+    }
+  }
+}
