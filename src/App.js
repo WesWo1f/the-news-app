@@ -7,12 +7,19 @@ import { useEffect, useState } from 'react';
 //http://localhost:8000/category
 
 function App() {
+
+  const [newsData, setNewsData] = useState()
+  useEffect(()=>{
+    console.log(newsData)
+  },[newsData])
+
+
   const wolf = 'wolf'
   useEffect(()=>{
     async function requestData(id) {
         console.log("Asked server for id: "+id)
       try {
-        const response = await fetch('https://nameless-cliffs-00097.herokuapp.com/category', {
+        const response = await fetch('http://nameless-cliffs-00097.herokuapp.com/category', {
           method: 'POST', // or 'PUT'
           headers: {
             'Accept': 'application/json',
@@ -20,9 +27,9 @@ function App() {
           },
           body: JSON.stringify({category: "wolf"})
       })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-      //setNewsData(await response.json())
+      // .then((response) => response.json())
+      // .then((data) => console.log(data));
+      setNewsData(await response.json())
       console.log('made call to server')
       } catch (error) {
         console.log("it ran but server is not on")
@@ -31,6 +38,9 @@ function App() {
     }
   requestData(wolf)
   },[])
+  useEffect(()=>{
+    console.log(newsData)
+  })
 
 
 
