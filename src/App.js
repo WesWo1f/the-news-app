@@ -14,7 +14,6 @@ function App() {
   // },[newsData])
   useEffect(()=> {
    async function requestData() {
-       console.log("Asked server for id: "+id)
      try {
        const response = await fetch('https://nameless-cliffs-00097.herokuapp.com', {
          method: 'GET', // or 'PUT'
