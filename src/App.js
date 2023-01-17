@@ -18,12 +18,11 @@ function App() {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({category:id})
+          body: JSON.stringify({category: "wolf"})
       })
       .then((response) => response.json())
       .then((data) => console.log(data));
       //setNewsData(await response.json())
-      console.log()
       console.log('made call to server')
       } catch (error) {
         console.log("it ran but server is not on")
