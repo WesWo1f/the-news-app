@@ -19,7 +19,7 @@ function App() {
     async function requestData(id) {
         console.log("Asked server for id: "+id)
       try {
-        const response = await fetch('http://nameless-cliffs-00097.herokuapp.com/category', {
+        const response = await fetch('https://nameless-cliffs-00097.herokuapp.com/category', {
           method: 'POST', // or 'PUT'
           headers: {
             'Accept': 'application/json',
