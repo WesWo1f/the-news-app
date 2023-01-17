@@ -27,10 +27,10 @@ function App() {
           },
           body: JSON.stringify({category: "wolf"})
       })
-      // .then((response) => response.json())
-      // .then((data) => console.log(data));
-      setNewsData(await response.json())
-      console.log('made call to server')
+       .then((response) => response.json())
+       .then((data) => console.log(data));
+      // setNewsData(await response.json())
+      // console.log('made call to server')
       } catch (error) {
         console.log("it ran but server is not on")
         console.log(error)
