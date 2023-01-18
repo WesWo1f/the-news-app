@@ -8,61 +8,40 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  // const [newsData, setNewsData] = useState()
-  // useEffect(()=>{
-  //   console.log(newsData)
-  // },[newsData])
-  useEffect(()=> {
-   async function requestData() {
-     try {
-       const response = await fetch('https://nameless-cliffs-00097.herokuapp.com', {
-         method: 'GET', // or 'PUT'
-         headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json',
-         },
-     })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-     // setNewsData(await response.json())
-      console.log('made call to server')
-     } catch (error) {
-       console.log("it ran but server is not on")
-       console.log(error)
-     }
-   }
-   requestData()
+  const data = { username: 'example' };
+
+useEffect(()=>{
+
+  fetch('https://nameless-cliffs-00097.herokuapp.com/category', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
   })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 
 
-  // const wolf = 'wolf'
-  // useEffect(()=>{
-  //   async function requestData(id) {
-  //       console.log("Asked server for id: "+id)
-  //     try {
-  //       const response = await fetch('https://nameless-cliffs-00097.herokuapp.com/category', {
-  //         method: 'POST', // or 'PUT'
-  //         headers: {
-  //           'Accept': 'application/json',
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify({category: "wolf"})
-  //     })
-  //      .then((response) => response.json())
-  //      .then((data) => console.log(data));
-  //     // setNewsData(await response.json())
-  //     // console.log('made call to server')
-  //     } catch (error) {
-  //       console.log("it ran but server is not on")
-  //       console.log(error)
-  //     }
-  //   }
-  // requestData(wolf)
-  // },[])
+})
 
-  // useEffect(()=>{
-  //   console.log(newsData)
-  // })
+
+    
+
+
+
+
+
+
+
+
+
+
 
 
 
