@@ -1,0 +1,76 @@
+
+.cards-container{
+    display: flex;
+    background-color: grey;
+}
+
+.my-card{
+    border-radius: 25px;
+    background-color: black;
+    border: none !important;
+    display: flex;
+    background-color: inherit !important;
+    /* margin-left: 10px;
+    margin-bottom: 10px; */
+    /* box-shadow: 0 4px 8px 0 rgba(8, 122, 235, 0.2), 0 6px 20px 0 rgba(37, 88, 255, 0.19); */
+}
+.cards-box{
+    
+    top:10px;
+    border-radius: 25px;
+    border-style: solid;
+    width: 640px; /* Can be in percentage also. */
+    /* height: auto; */
+    margin: 0 auto;
+    
+    position: relative;
+    background-color:rgb(28, 28, 28);
+}
+.card-img{
+    width: 100px;
+    border-radius: 25px !important;
+}
+.card-body{
+    border-radius: 25px;
+    background-color: rgb(28, 28, 28);
+}
+.card-title{
+    color: whitesmoke;
+}
+.card-text{
+    color: whitesmoke;
+}
+
+.title-category{
+    text-align: center;
+    text-transform: capitalize;
+    font-size:xx-large
+}
+
+.article-container{
+    margin: 5px;
+}
+.image-and-headline{
+display: flex;
+padding-top: 20px;
+padding-left: 5px;
+text-decoration: none !important;
+color:inherit !important;
+}
+.image-thumbnail{
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    float: left;
+}
+
+.head-line:hover {
+    text-decoration: underline;
+}
+.head-line{
+    padding-left: 20px;
+    font-size: x-large;
+}
+.search-bar{
+    margin-left: 10px;
+}
