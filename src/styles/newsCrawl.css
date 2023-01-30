@@ -1,0 +1,29 @@
+.ticker, .langs {
+    font-size:2vw;
+    display: inline-block;
+    white-space: nowrap;
+    animation: floatText 300s infinite linear;
+    padding-left: 100%; /*Initial offset, which places the text off-screen*/
+    color:#ada97d;
+  }
+  @keyframes floatText {
+    to {
+      transform: translateX(-100%);
+    }
+}
+.ticker:hover {
+  animation-play-state: paused;
+  font-size:2vw;
+  display: inline-block;
+  white-space: nowrap;
+  color:#ada97d;
+}
+
+.text-crawl{
+  color: whitesmoke;
+    text-decoration: none !important;
+}
+.text-crawl:hover {
+  color: whitesmoke;
+  text-decoration: underline !important;
+}

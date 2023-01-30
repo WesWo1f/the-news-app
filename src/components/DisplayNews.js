@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import "../styles/displayNews.css"
 
-export default function DisplayNews({newsData, searchId}) {
+export default function DisplayNews({newsData, searchId, }) {
     const articleArray = []
     const [article, setArticle] = useState([]);
    useEffect(()=>{
@@ -36,7 +36,7 @@ export default function DisplayNews({newsData, searchId}) {
     } 
 
     function settingArticles(index,articleCount){
-      console.log("setting articles called")
+      //console.log("setting articles called")
        const obj = {
          id: [index],
          headLine: newsData.fetchResult.data[index].title,
@@ -44,7 +44,7 @@ export default function DisplayNews({newsData, searchId}) {
          link: newsData.fetchResult.data[index].url,
          category: newsData.fetchResult.data[index].categories
        }
-       console.log("this is articleIndex inside of settingArticles function:"+ articleCount )
+       //console.log("this is articleIndex inside of settingArticles function:"+ articleCount )
        articleArray[articleCount] = obj
        setArticle(articleArray)
     }
