@@ -42,6 +42,7 @@
 }
 
 .title-category{
+    color: whitesmoke;
     text-align: center;
     text-transform: capitalize;
     font-size:xx-large
@@ -68,6 +69,7 @@ color:inherit !important;
     text-decoration: underline;
 }
 .head-line{
+    color: whitesmoke;
     padding-left: 20px;
     font-size: x-large;
 }
