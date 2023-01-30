@@ -2,8 +2,8 @@ import React from 'react'
 import { useEffect } from 'react'
 function DataChecker(newsData) {
 
-
-    useEffect(() => {
+    //currently nothing is running in this component
+        useEffect(() => {
         if(typeof(newsData.newsData) !== 'undefined'){
             //checkingForDuplicates(newsData)
         }
