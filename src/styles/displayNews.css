@@ -73,6 +73,17 @@ color:inherit !important;
     padding-left: 20px;
     font-size: x-large;
 }
+.article-source{
+    margin-left: 20px;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+}
 .search-bar{
     margin-left: 10px;
+}
+.solid{
+    border-top: 3px solid #bbb;
 }

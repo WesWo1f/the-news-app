@@ -19,34 +19,22 @@ function App() {
 
 
 
-
-  // useEffect(()=>{
-  //   console.log(newsData)
-  //   if(typeof(newsData) !== 'undefined'){
-  //     console.log("this is newData: "+newsData.fetchResult.data[0].title)
-  //     //newsData.fetchResult.data[0].url
-  //     //newsData.fetchResult.data[0].uuid
-  //     //newsData.fetchResult.data[0].language: "en"
-  //     //newsData.fetchResult.data[0].source
-  //     //newsData.fetchResult.data[0].keywords
-  //     //newsData.fetchResult.data[0].categories: (2) ['general', 'politics']
-  //     //newsData.fetchResult.data[0].image_url
-  //     //newsData.fetchResult.data[0].description
-  //   }
-  // },[newsData])
   useEffect(()=>{
-    if(typeof(crawlData) !== 'undefined'){
-      console.log("this is crawlData: "+crawlData.fetchResult.data[0].title)
+    console.log(newsData)
+    if(typeof(newsData) !== 'undefined'){
+      //console.log("this is newData: "+newsData.fetchResult.data[0].title)
       //newsData.fetchResult.data[0].url
       //newsData.fetchResult.data[0].uuid
       //newsData.fetchResult.data[0].language: "en"
+      //console.log("this is source:"+newsData.fetchResult.data[0].source)
       //newsData.fetchResult.data[0].source
       //newsData.fetchResult.data[0].keywords
       //newsData.fetchResult.data[0].categories: (2) ['general', 'politics']
       //newsData.fetchResult.data[0].image_url
       //newsData.fetchResult.data[0].description
     }
-  })
+  },[newsData])
+
 
 
 
