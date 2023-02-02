@@ -19,7 +19,7 @@ export default function NewsNavbar(setSearchId) {
           <Nav className="me-auto">
             <Link to="/newsPage/general" className="nav-link">General</Link>
             <Link to="/newsPage/science" className="nav-link">Science</Link>
-            <Link to="/newsPage/health" className="nav-link">Health</Link>
+            {/* <Link to="/newsPage/health" className="nav-link">Health</Link> */}
             <Link to="/newsPage/tech" className="nav-link">Tech</Link>
             <Link to="/newsPage/sports" className="nav-link">Sports</Link>
             <Link to="/newsPage/travel" className="nav-link">travel</Link>

@@ -20,11 +20,13 @@ export default function DisplayNews({newsData, searchId, }) {
       //console.log("newsData.theNews.value.length: "+newsData.theNews.value.length)
         for (let index = 0; index < 40; index++) {
           try {
-            if (articleCount >= 4){return}
-            if( typeof(newsData.fetchResult.data[index].title       ) !== 'undefined'  && 
+            if (articleCount >= 9){return}
+            if( typeof(newsData.fetchResult.data[index].title     ) !== 'undefined'  && 
                 typeof(newsData.fetchResult.data[index].url       ) !== 'undefined' && 
-                typeof(newsData.fetchResult.data[index].image_url   ) !== 'undefined' && 
-                typeof(newsData.fetchResult.data[index].categories !== 'undefined')){
+                typeof(newsData.fetchResult.data[index].image_url ) !== 'undefined' && 
+                typeof(newsData.fetchResult.data[index].categories) !== 'undefined' &&
+                typeof(newsData.fetchResult.data[index].source) !== 'undefined'
+                ){
               articleCount +=1
               settingArticles(index,articleCount)
             }
@@ -42,7 +44,8 @@ export default function DisplayNews({newsData, searchId, }) {
          headLine: newsData.fetchResult.data[index].title,
          imageThumbnail: newsData.fetchResult.data[index].image_url,
          link: newsData.fetchResult.data[index].url,
-         category: newsData.fetchResult.data[index].categories
+         category: newsData.fetchResult.data[index].categories,
+         source: newsData.fetchResult.data[index].source
        }
        //console.log("this is articleIndex inside of settingArticles function:"+ articleCount )
        articleArray[articleCount] = obj
@@ -72,14 +75,18 @@ if(article.length >=3){
               )
             }
           })()}
+          <hr className="solid"></hr>
           </div>
               <div className="article-container">
               <div className='image-and-headline'>
                 <a href={article[1].link} className='image-and-headline' target="_blank" rel="noopener noreferrer">
                 <img className="image-thumbnail"  src={article[1].imageThumbnail}  alt=""></img>
-                <div className='head-line' >{article[1].headLine} </div></a>
+                <div className='head-line' >{article[1].headLine} </div>
+                </a>
               </div>
+              <div className='article-source'>{article[1].source}</div>
               </div>
+              <hr className="solid"></hr>
       
               <div className="article-container">
               <div className='image-and-headline'>
@@ -87,23 +94,53 @@ if(article.length >=3){
                 <img className="image-thumbnail"  src={article[2].imageThumbnail}  alt=""></img>
                 <div className='head-line' >{article[2].headLine}</div></a>
               </div>
+              <div className='article-source'>{article[2].source}</div>
               </div>
-      
+              <hr className="solid"></hr>
               <div className="article-container">
               <div className='image-and-headline'>
               <a href={article[3].link} className='image-and-headline' target="_blank" rel="noopener noreferrer">
                 <img className="image-thumbnail"  src={article[3].imageThumbnail}  alt=""></img>
                 <div className='head-line' >{article[3].headLine}</div></a>
               </div>
+              <div className='article-source'>{article[3].source}</div>
               </div>
-      
+              <hr className="solid"></hr>
               <div className="article-container">
               <div className='image-and-headline'>
               <a href={article[4].link} className='image-and-headline' target="_blank" rel="noopener noreferrer">
                 <img className="image-thumbnail"  src={article[4].imageThumbnail}  alt=""></img>
                 <div className='head-line' >{article[4].headLine}</div></a>
               </div>
+              <div className='article-source'>{article[4].source}</div>
               </div>
+
+              <hr className="solid"></hr>
+              <div className="article-container">
+              <div className='image-and-headline'>
+              <a href={article[5].link} className='image-and-headline' target="_blank" rel="noopener noreferrer">
+                <img className="image-thumbnail"  src={article[5].imageThumbnail}  alt=""></img>
+                <div className='head-line' >{article[5].headLine}</div></a>
+              </div>
+              <div className='article-source'>{article[5].source}</div>
+              </div>
+
+              <hr className="solid"></hr>
+              <div className="article-container">
+              <div className='image-and-headline'>
+              <a href={article[6].link} className='image-and-headline' target="_blank" rel="noopener noreferrer">
+                <img className="image-thumbnail"  src={article[6].imageThumbnail}  alt=""></img>
+                <div className='head-line' >{article[6].headLine}</div></a>
+              </div>
+              <div className='article-source'>{article[6].source}</div>
+              </div>
+
+
+
+
+
+
+
           </div> 
           </div>
           </> 
