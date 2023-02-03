@@ -6,18 +6,15 @@ export default function DisplayNews({newsData, searchId, }) {
     const articleArray = []
     const [article, setArticle] = useState([]);
    useEffect(()=>{
-        console.log(newsData)
+        //console.log(newsData)
         if(typeof(newsData) !== 'undefined'){
-            checkingNull()
+          checkingNull()
         }
     },[newsData])
 
 
-
-
     function checkingNull(){
       let articleCount = 0
-      //console.log("newsData.theNews.value.length: "+newsData.theNews.value.length)
         for (let index = 0; index < 40; index++) {
           try {
             if (articleCount >= 9){return}
@@ -38,7 +35,6 @@ export default function DisplayNews({newsData, searchId, }) {
     } 
 
     function settingArticles(index,articleCount){
-      //console.log("setting articles called")
        const obj = {
          id: [index],
          headLine: newsData.fetchResult.data[index].title,
@@ -47,14 +43,9 @@ export default function DisplayNews({newsData, searchId, }) {
          category: newsData.fetchResult.data[index].categories,
          source: newsData.fetchResult.data[index].source
        }
-       //console.log("this is articleIndex inside of settingArticles function:"+ articleCount )
        articleArray[articleCount] = obj
        setArticle(articleArray)
     }
-
-
-
-
 
 
 
@@ -134,12 +125,6 @@ if(article.length >=3){
               </div>
               <div className='article-source'>{article[6].source}</div>
               </div>
-
-
-
-
-
-
 
           </div> 
           </div>

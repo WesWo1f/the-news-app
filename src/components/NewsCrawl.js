@@ -3,8 +3,6 @@ import '../styles/newsCrawl.css'
 import { useState } from 'react'
 
 
-
-
 export default function HeadLineCrawl({crawlData}) {
 
     const articleArray = []
@@ -50,7 +48,7 @@ export default function HeadLineCrawl({crawlData}) {
     const theTickerText = article.map((news, index) => (
         <a key={index}  href={news.link} className='text-crawl' target="_blank" rel="noopener noreferrer">{news.headLine}, </a>
      ))
-     
+
     return (
         <>
           <div className="hwrap"><div className="hmove">
