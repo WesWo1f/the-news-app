@@ -3,13 +3,10 @@ import '../styles/newsCrawl.css'
 import { useState } from 'react'
 
 
-
-
 export default function HeadLineCrawl({crawlData}) {
 
     const articleArray = []
     const [article, setArticle] = useState([]);
-
 
     useEffect(()=>{
         if(typeof(crawlData) !== 'undefined'){
@@ -47,16 +44,16 @@ export default function HeadLineCrawl({crawlData}) {
         setArticle(articleArray)
     }
 
-
   if(article.length >= 6){
-    const theTickerText= article.map((news, index) => (
+    const theTickerText = article.map((news, index) => (
         <a key={index}  href={news.link} className='text-crawl' target="_blank" rel="noopener noreferrer">{news.headLine}, </a>
      ))
+
     return (
         <>
-          <div className="ticker">
-            {theTickerText}  
-          </div>
+          <div className="hwrap"><div className="hmove">
+          <div className="hitem">{theTickerText}</div>
+          </div></div>
         </>
       )
   }

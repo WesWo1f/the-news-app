@@ -1,23 +1,31 @@
-.ticker, .langs {
-    font-size:2vw;
-    display: inline-block;
-    white-space: nowrap;
-    animation: floatText 300s infinite linear;
-    padding-left: 100%; /*Initial offset, which places the text off-screen*/
-    color:#ada97d;
-  }
-  @keyframes floatText {
-    to {
-      transform: translateX(-100%);
-    }
+
+/* (A) FIXED WRAPPER */
+.hwrap {
+  overflow: hidden; /* HIDE SCROLL BAR */
+  background: #eee;
 }
-.ticker:hover {
-  animation-play-state: paused;
-  font-size:2vw;
-  display: inline-block;
+ 
+/* (B) MOVING TICKER WRAPPER */
+.hmove { display: flex; }
+
+/* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+.hitem {
   white-space: nowrap;
-  color:#ada97d;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
 }
+ 
+/* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+@keyframes tickerh {
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-1100%, 0, 0); }
+}
+.hmove { animation: tickerh 200s  linear infinite; }
+.hmove:hover { animation-play-state: paused; }
+
 
 .text-crawl{
   color: black;
@@ -27,3 +35,6 @@
   color: black;
   text-decoration: underline !important;
 }
+
+
+

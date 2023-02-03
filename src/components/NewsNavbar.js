@@ -22,10 +22,10 @@ export default function NewsNavbar(setSearchId) {
             {/* <Link to="/newsPage/health" className="nav-link">Health</Link> */}
             <Link to="/newsPage/tech" className="nav-link">Tech</Link>
             <Link to="/newsPage/sports" className="nav-link">Sports</Link>
-            <Link to="/newsPage/travel" className="nav-link">travel</Link>
+            <Link to="/newsPage/travel" className="nav-link">Travel</Link>
             <Link to="/newsPage/entertainment" className="nav-link">Entertainment</Link>
             <Link to="/newsPage/politics" className="nav-link">Politics</Link>
-            <Link to="/newsPage/food" className="nav-link">food</Link>
+            <Link to="/newsPage/food" className="nav-link">Food</Link>
             <Link to="/newsPage/business" className="nav-link">Business</Link>
           </Nav>
         </Navbar.Collapse>
