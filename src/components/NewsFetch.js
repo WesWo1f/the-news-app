@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function NewsFetch({ searchId, setNewsData, crawlData, setCrawlData}) {
+export default function NewsFetch({ searchId,setRawData, setNewsData, crawlData, setCrawlData}) {
 
    
 
@@ -15,7 +15,8 @@ export default function NewsFetch({ searchId, setNewsData, crawlData, setCrawlDa
                   },
                   body: JSON.stringify({category:id})
               })
-              setNewsData(await response.json())
+              setRawData(await response.json())
+              //setNewsData(await response.json())
               } catch (error) {
                 //console.log(error)
               }
