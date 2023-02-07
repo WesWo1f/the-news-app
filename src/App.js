@@ -10,6 +10,11 @@ import { Route, Routes } from "react-router-dom";
 import './styles/styling.css'
 
 
+
+import { useRef } from 'react';
+import { useEffect } from 'react';
+
+
 function App() {
   const [searchId, setSearchId] = useState('trending');
   const [newsData, setNewsData] = useState();
@@ -17,12 +22,25 @@ function App() {
 
 
 
+  //const count = useRef(0);
+  const [rawData, setRawData] = useState();
+  // useEffect(() => {
+  //   count.current = count.current + 1;
+  // });
+
+
+
+
 
 
   return (
     <>
-    <DataChecker newsData={newsData}/>
-    <NewsFetch searchId={searchId} setNewsData={setNewsData} crawlData={crawlData} setCrawlData={setCrawlData} />
+    {/* <h1>Render Count: {count.current}</h1> */}
+    {/* <DataChecker newsData={newsData} setNewsData={setNewsData} setcheckedData={setcheckedData}/>
+    <NewsFetch searchId={searchId} setNewsData={setNewsData} crawlData={crawlData} setCrawlData={setCrawlData} /> */}
+    <DataChecker rawData={rawData} setNewsData={setNewsData} />
+    <NewsFetch searchId={searchId} setRawData={setRawData} crawlData={crawlData} setCrawlData={setCrawlData} />
+
     <NewsNavbar setSearchId={setSearchId} />
     
     <NewsCrawl crawlData={crawlData}/>

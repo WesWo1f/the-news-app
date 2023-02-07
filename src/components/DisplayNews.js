@@ -2,16 +2,14 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import "../styles/displayNews.css"
 
-export default function DisplayNews({newsData, searchId, }) {
+export default function DisplayNews({newsData, searchId}) {
     const articleArray = []
     const [article, setArticle] = useState([]);
    useEffect(()=>{
-        //console.log(newsData)
         if(typeof(newsData) !== 'undefined'){
           checkingNull()
         }
     },[newsData])
-
 
     function checkingNull(){
       let articleCount = 0
