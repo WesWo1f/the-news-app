@@ -11,6 +11,7 @@ function DataChecker({rawData, setNewsData}) {
 
     useEffect(() => {
         if(typeof(rawData) !== 'undefined'){
+            console.log(rawData)
             rawData = findDuplicateTitles(rawData)
             rawData = findDuplicateImages(rawData)
             rawData = checkUrlImage(rawData)
@@ -19,110 +20,79 @@ function DataChecker({rawData, setNewsData}) {
     }, [rawData])
 
 
-    function checkUrlImage(obj){
-        obj.fetchResult.data.forEach(element => {
-            checkIfImageExists(`${element.image_url}`, (exists) => {
-                if (exists) {
-                } else {
-                    let indexToDelete = obj.fetchResult.data.indexOf(element)
-                    console.log(indexToDelete)
-                    obj.fetchResult.data.splice(indexToDelete, 1)
-                }
-              });
+
+
+    function checkUrlImage(obj) {
+        // Filter the data array using Array.filter and a Promise
+        const filteredData = obj.fetchResult.data.filter((element) => {
+        return new Promise((resolve) => {
+            checkIfImageExists(`${element.image_url}`).then((exists) => {
+              resolve(exists);
+            });
+          });
         });
-        return obj
+    
+        obj.fetchResult.data = filteredData;
+        return obj;
     }
-    function checkIfImageExists(url, callback) {
+      
+    function checkIfImageExists(url) {
+      return new Promise((resolve) => {
         const img = new Image();
         img.src = url;
-    
-        if (img.complete) {
-          callback(true);
-        } else {
-          img.onload = () => {
-            callback(true);
-          };
-          img.onerror = () => {
-            callback(false);
-          };
-        }
+      
+        img.onload = () => {
+          resolve(true);
+        };
+        img.onerror = () => {
+          resolve(false);
+        };
+      });
     }
 
 
-    function findDuplicateImages(obj){
-        //finds and counts the number of image occurrences
+
+    function findDuplicateImages(obj) {
+        // create a dictionary to count the number of occurrences of each image URL
         const imageCounts = {};
-        obj.fetchResult.data.forEach(function (x) { imageCounts[x.image_url] = (imageCounts[x.image_url] || 0) + 1;});
-        //checks if images appear more than once if so pushes this to titleToBeDeleted array
-        const keyAndValue = Object.entries(imageCounts)
-        let imagesToBeDeleted = []
-        keyAndValue.forEach(element => {
-            //console.log(element)
-            if(element[1] >= 2){
-                //set number of this picture that is repeated
-                let num = element[1]
-                for (let index = 0; index < num; index++) {
-                    console.log(element[0])
-                    imagesToBeDeleted.push(element[0])
-                }
-            }
+        obj.fetchResult.data.forEach(function(x) {
+          imageCounts[x.image_url] = (imageCounts[x.image_url] || 0) + 1;
         });
-        //checks imagesToBeDeleted against all titles where there is a match it gets the index of said title then delete it from the object then returns the object
-        let keys = Object.keys(imageCounts);
-        console.log("imagesToBeDeleted.length: "+imagesToBeDeleted.length)
-        if(imagesToBeDeleted.length > 0){
-            keys.forEach(element => {
-                for (let index = 0; index < imagesToBeDeleted.length; index++) {
-                    if(imagesToBeDeleted[index] === element){
-                        let indexToDelete = keys.indexOf(element)
-                        obj.fetchResult.data.splice(indexToDelete, 1)
-                    }
-                }
-            });
+      
+        // use .filter() and .flatMap() to get a list of duplicate image URLs
+        const imagesToBeDeleted = Object.entries(imageCounts)
+          .filter(element => element[1] >= 2)
+          .flatMap(element => Array(element[1]).fill(element[0]));
+      
+        // use .filter() to remove the duplicates from the `obj.fetchResult.data` array
+        if (imagesToBeDeleted.length > 0) {
+          obj.fetchResult.data = obj.fetchResult.data.filter(x => !imagesToBeDeleted.includes(x.image_url));
         }
-        return obj
+      
+        // return the updated object
+        return obj;
     }
+
 
     function findDuplicateTitles(obj){
-        //finds and counts the number of title occurrences
+        // Count the number of title occurrences
         const titleCounts = {};
-        obj.fetchResult.data.forEach(function (x) { titleCounts[x.title] = (titleCounts[x.title] || 0) + 1;});
-        //checks if titles appear more than once if so pushes this to titlesToBeDeleted array
-        const keyAndValue = Object.entries(titleCounts)
-        let titlesToBeDeleted = []
-        keyAndValue.forEach(element => {
-            if(element[1] >= 2){
-                //console.log(element[1])
-                titlesToBeDeleted.push(element[0])
-            }
-        });
-        //checks titlesToBeDeleted against all titles where there is a match it gets the index of said title then delete it from the object then returns the object
-        let keys = Object.keys(titleCounts);
-        console.log("titlesToBeDeleted.length: "+titlesToBeDeleted.length)
-        if(titlesToBeDeleted.length > 0){
-            keys.forEach(element => {
-                for (let index = 0; index < titlesToBeDeleted.length; index++) {
-                    if(titlesToBeDeleted[index] === element){
-                        let indexToDelete = keys.indexOf(element)
-                        obj.fetchResult.data.splice(indexToDelete, 1)
-                    }
-                }
-            });
-        }
-        return obj
+        obj.fetchResult.data.forEach(x => { titleCounts[x.title] = (titleCounts[x.title] || 0) + 1;});
+    
+        // Get an array of duplicated titles
+        const duplicatedTitles = Object.entries(titleCounts)
+            .filter(entry => entry[1] >= 2)
+            .map(entry => entry[0]);
+    
+        // Remove duplicated titles from the object
+        obj.fetchResult.data = obj.fetchResult.data.filter(x => !duplicatedTitles.includes(x.title));
+        // return the updated object
+        return obj;
     }
-    
 
 
 
-
-  return (
-    <>
-    
-    
-    </>
-
-  )
+  return (null)
 }
 
 export default DataChecker

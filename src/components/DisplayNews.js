@@ -47,7 +47,7 @@ export default function DisplayNews({newsData, searchId}) {
 
 
 
-if(article.length >=3){
+if(article.length >=5){
     return (
         <>
             <div className='cards-container'>
@@ -66,7 +66,8 @@ if(article.length >=3){
           })()}
           <hr className="solid"></hr>
           </div>
-              <div className="article-container">
+
+          <div className="article-container">
               <div className='image-and-headline'>
                 <a href={article[1].link} className='image-and-headline' target="_blank" rel="noopener noreferrer">
                 <img className="image-thumbnail"  src={article[1].imageThumbnail}  alt=""></img>
