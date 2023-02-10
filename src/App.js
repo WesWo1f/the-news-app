@@ -22,7 +22,7 @@ function App() {
 
 
 
-  //const count = useRef(0);
+  // const count = useRef(0);
   const [rawData, setRawData] = useState();
   // useEffect(() => {
   //   count.current = count.current + 1;
@@ -35,9 +35,6 @@ function App() {
 
   return (
     <>
-    {/* <h1>Render Count: {count.current}</h1> */}
-    {/* <DataChecker newsData={newsData} setNewsData={setNewsData} setcheckedData={setcheckedData}/>
-    <NewsFetch searchId={searchId} setNewsData={setNewsData} crawlData={crawlData} setCrawlData={setCrawlData} /> */}
     <DataChecker rawData={rawData} setNewsData={setNewsData} />
     <NewsFetch searchId={searchId} setRawData={setRawData} crawlData={crawlData} setCrawlData={setCrawlData} />
 
