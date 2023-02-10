@@ -35,6 +35,7 @@ function DataChecker({rawData, setNewsData}) {
         obj.fetchResult.data = filteredData;
         return obj;
     }
+ 
       
     function checkIfImageExists(url) {
       return new Promise((resolve) => {
