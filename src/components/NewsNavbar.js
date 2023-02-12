@@ -5,6 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../styles/navbar.css'
 
+import logo from '../Images/Simply News Now-1 (1).png'
+
 
 
 
@@ -13,7 +15,8 @@ export default function NewsNavbar(setSearchId) {
     <>
     <div className='navbar-container'>
       <div className='brand-and-links'>
-        <Navbar.Brand><Link className='nav-brand' to="/">News</Link></Navbar.Brand>
+      <img className='logo' src={logo} alt="Logo" />
+        <Navbar.Brand><Link className='nav-brand' to="/"></Link></Navbar.Brand>
       </div>
       <div className='brand-and-links'>
         <Navbar   expand="lg">

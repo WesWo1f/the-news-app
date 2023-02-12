@@ -3,11 +3,12 @@ import { useEffect } from 'react'
 
 
 function DataChecker({rawData, setNewsData}) {
-    
+    //The following sites dont have unique images/titles or both
     //TODO remove health from navbar
     //TODO remove "Dive into anything"
     //TODO remove investing.com
     //TODO remove allnurses.com
+    //TODO news.google.com
 
     useEffect(() => {
         if(typeof(rawData) !== 'undefined'){
@@ -19,8 +20,7 @@ function DataChecker({rawData, setNewsData}) {
         }
     }, [rawData])
 
-
-
+ 
 
     function checkUrlImage(obj) {
         // Filter the data array using Array.filter and a Promise

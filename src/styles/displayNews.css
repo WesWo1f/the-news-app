@@ -1,152 +1,11 @@
-/* 
-.cards-container{
-    display: flex;
-    background-color: grey;
-}
-
-.my-card{
-    border-radius: 25px;
-    background-color: black;
-    border: none !important;
-    display: flex;
-    background-color: inherit !important;
-}
-.cards-box{
-    
-    top:10px;
-    border-radius: 25px;
-    border-style: solid;
-    width: 640px; 
-    margin: 0 auto;
-    
-    position: relative;
-    background-color:rgb(28, 28, 28);
-}
-.card-img{
-    width: 100px;
-    border-radius: 25px !important;
-}
-.card-body{
-    border-radius: 25px;
-    background-color: rgb(28, 28, 28);
-}
-.card-title{
-    color: whitesmoke;
-}
-.card-text{
-    color: whitesmoke;
-}
-
-.title-category{
-    color: whitesmoke;
-    text-align: center;
-    text-transform: capitalize;
-    font-size:xx-large
-}
-
-.article-container{
-    margin: 5px;
-}
-.image-and-headline{
-display: flex;
-padding-top: 20px;
-padding-left: 5px;
-text-decoration: none !important;
-color:inherit !important;
-
-}
-.image-thumbnail{
-    width: 250px;
-    height: 200px;
-    border-radius: 25px;
-    float: left;
-}
-
-.head-line:hover {
-    text-decoration: underline;
-}
-.head-line{
-    color: whitesmoke;
-    padding-left: 20px;
-    font-size: x-large;
-}
-.article-source{
-    margin-left: 20px;
-    flex-direction: column;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    text-align: center;
-}
-.search-bar{
-    margin-left: 10px;
-}
-.solid{
-    border-top: 3px solid #bbb;
-}
-
-ul {
-    list-style-type:none !important;
-}
-
-.image-and-text {
-    float: left;
-    float: bottom;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.img-with-text {
-    text-align: justify;
-    width: 250px;
-}
-
-.img-with-text img {
-    display: block;
-    margin: 0 auto;
-} 
-
-
-.container {
-    display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 500px;
-  height: 300px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 20px auto;
-}
-  
-img {
-    width: 250px;
-    height: 200px;
-    border-radius: 25px;
-    float: left;
-}
-  
-.image-title {
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    margin-bottom: 20px;
-}
-  
-.image-source {
-    margin-left: 20px;
-    display: flex;
-} 
-
-*/
-
 body {
-    background-color: #324a5f !important;
-    color: #000814 !important;
+    background-color: #415A77!important;
+    /* color: #000814 !important; */
 }
 .search-id{
-    color: whitesmoke;
-    font-size: xx-large;
+    color: #E0E1DD;
+    font-size: 50px;
+    font-weight: bolder;
     text-align: center;
     text-transform: capitalize;
 }
@@ -154,8 +13,8 @@ ul {
     list-style-type: none !important;
     border-radius: 25px !important;
     padding: 0 !important;
-    color: #1b2a41 !important;
-    background-color: #1b2a41 !important;
+    /* color: black !important; */
+    background-color: #1b263b!important;
     
 
 } 
@@ -168,8 +27,8 @@ li {
 .news-cards-container{
     border-radius: 25px !important;
     border-style: solid;
-    color: #1b2a41 !important;
-    background-color: #1b2a41 !important;
+    color: #1b263b !important;
+    background-color: #1b263b !important;
     margin:0 auto;
     display: flex;
     flex-direction: column;
@@ -181,7 +40,7 @@ li {
     display: flex;
 }
 .article-card{
-    background-color: #1b2a41 !important;
+    background-color: #1b263b !important;
     width: 250px;
     display: flex;
     border-radius: 25px !important;
@@ -203,7 +62,7 @@ li {
 
 .article-image {
     padding-left: 10px;
-    background-color: #1b2a41 !important;
+    background-color: #1b263b !important;
     width: 250px !important;
     border-radius: 25px !important;
     border: grey !important;
@@ -217,7 +76,7 @@ li {
     text-decoration: none !important;
 }
 .solid {
-    border-top: 3px solid black !important;
+    border-top: 3px solid #415A77!important;
 }
 
 .similar-news-container{
@@ -237,8 +96,8 @@ li {
         display: none !important;
     }
     .news-cards-container{
-        color: #1b2a41 !important;
-        background-color: #1b2a41!important;
+        color: #1b263b !important;
+        background-color: #1b263b!important;
         display: flex;
         flex-direction: column;
         align-items: center;
