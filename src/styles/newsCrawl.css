@@ -2,7 +2,7 @@
 /* (A) FIXED WRAPPER */
 .hwrap {
   overflow: hidden; /* HIDE SCROLL BAR */
-  background: #eee;
+  background: #0c1821;
 }
  
 /* (B) MOVING TICKER WRAPPER */
@@ -28,7 +28,7 @@
 
 
 .text-crawl{
-  color: black;
+  color: whitesmoke;
   text-decoration: none !important;
 }
 .text-crawl:hover {
