@@ -2,30 +2,41 @@
 
 
 .navbar-container {
-    color: whitesmoke;
+    color: white;
     text-align: center !important;
-    background-color: #0c1821;
+    background-color: #1B263B;
 }
 
 .nav-link {
-    color: whitesmoke;
+    color: white;
     display: inline-block !important;
     font-weight: 900 !important;
 }
 .nav-brand {
-    font-size: x-large;
-    color: whitesmoke;
+   
+    /* font-size: x-large;
+    color: white;
     text-decoration: none !important;
-    list-style: none !important;
+    list-style: none !important; */
 }
 
 .brand-and-links {
     padding-left: 50px;
-    color: whitesmoke;
+    color: white;
     display: inline-block !important;
     vertical-align: middle !important;
 }
 
 .nav-link{
-    color: whitesmoke !important;
+    color: white !important;
+}
+.logo {
+    /* background-size:cover;
+    background-position:center; */
+    object-fit: cover ;
+    scale: 1.5;
+    border-radius: 50% ;
+    width: 150px;
+    height: 150px;
+    overflow: hidden !important;
 }
