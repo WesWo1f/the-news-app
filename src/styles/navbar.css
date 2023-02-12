@@ -1,3 +1,31 @@
-.nav-link{
+
+
+
+.navbar-container {
+    color: whitesmoke;
+    text-align: center !important;
+    background-color: #0c1821;
+}
+
+.nav-link {
+    color: whitesmoke;
+    display: inline-block !important;
     font-weight: 900 !important;
+}
+.nav-brand {
+    font-size: x-large;
+    color: whitesmoke;
+    text-decoration: none !important;
+    list-style: none !important;
+}
+
+.brand-and-links {
+    padding-left: 50px;
+    color: whitesmoke;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.nav-link{
+    color: whitesmoke !important;
 }
