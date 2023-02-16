@@ -19,8 +19,6 @@ function DataChecker({rawData, setNewsData}) {
         }
     }, [rawData])
 
- 
-
     function checkUrlImage(obj) {
         // Filter the data array using Array.filter and a Promise
         const filteredData = obj.fetchResult.data.filter((element) => {
