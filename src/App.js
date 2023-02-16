@@ -17,28 +17,24 @@ import { useEffect } from 'react';
 
 function App() {
   const [searchId, setSearchId] = useState('trending');
-  const [newsData, setNewsData] = useState();
   const [crawlData, setCrawlData] = useState();
-  const [combinedNewsData, setCombinedNewsData] = useState();
   const [articleBlock, setArticleBlock] = useState();
-
   // const count = useRef(0);
-  const [rawData, setRawData] = useState();
   // useEffect(() => {
   //   count.current = count.current + 1;
   // });
 
   return (
     <>
-    <DataChecker rawData={rawData} setNewsData={setNewsData} />
-    <NewsFetch searchId={searchId} setRawData={setRawData} crawlData={crawlData} setCrawlData={setCrawlData} setCombinedNewsData={setCombinedNewsData} setArticleBlock={setArticleBlock} />
+    {/* <div>{count.current}</div> */}
+    <NewsFetch searchId={searchId} crawlData={crawlData} setCrawlData={setCrawlData}  setArticleBlock={setArticleBlock} />
     <NewsNavbar setSearchId={setSearchId} />
     <NewsCrawl crawlData={crawlData}/>
     <Routes >
     <Route path="/" element={<SetNews  setSearchId={setSearchId}/> } />
     <Route path="/newspage/:id" element={<SetNews  setSearchId={setSearchId}/> } />
     </Routes>
-    <DisplayNews newsData={newsData} searchId={searchId} combinedNewsData={combinedNewsData} articleBlock={articleBlock} />
+    <DisplayNews  searchId={searchId} articleBlock={articleBlock} />
     </>
   );
 }

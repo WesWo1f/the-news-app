@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData, setCombinedNewsData ,setArticleBlock}) {
+export default function NewsFetch({searchId, crawlData, setCrawlData,setArticleBlock}) {
 
   async function fetchData(url, id, page, newsUuid) {
     let data = {}
@@ -78,7 +78,6 @@ export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData
            setArticleBlock(blockArticles)
         }
         getSimiarNews()
-        //setRawData(combinedDataPages)
       }
       else if(url ==='https://nameless-cliffs-00097.herokuapp.com/crawldata'){
         setCrawlData(combinedDataPages)
