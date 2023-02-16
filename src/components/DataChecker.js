@@ -8,7 +8,6 @@ function DataChecker({rawData, setNewsData}) {
     //TODO remove "Dive into anything"
     //TODO remove investing.com
     //TODO remove allnurses.com
-    //TODO news.google.com
 
     useEffect(() => {
         if(typeof(rawData) !== 'undefined'){
@@ -32,10 +31,10 @@ function DataChecker({rawData, setNewsData}) {
           });
         });
     
-        obj.fetchResult.data = filteredData;
-        return obj;
+      obj.fetchResult.data = filteredData;
+      return obj;
     }
- 
+    
       
     function checkIfImageExists(url) {
       return new Promise((resolve) => {
@@ -90,8 +89,6 @@ function DataChecker({rawData, setNewsData}) {
         // return the updated object
         return obj;
     }
-
-
 
   return (null)
 }
