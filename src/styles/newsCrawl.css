@@ -3,6 +3,7 @@
 .hwrap {
   overflow: hidden; /* HIDE SCROLL BAR */
   background: #778DA9;
+  margin-bottom: 20px;
 }
  
 /* (B) MOVING TICKER WRAPPER */

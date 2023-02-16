@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData}) {
+export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData, setSimilarNews, setCombinedNewsData}) {
 
-  async function fetchData(url, id, page) {
+  async function fetchData(url, id, page, newsUuid) {
     let data = {}
     try {
       const response = await fetch(url, {
@@ -11,7 +11,7 @@ export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({category: id, page: page})
+        body: JSON.stringify({category: id, page: page, newsUuid: newsUuid})
     })
     data = await response.json()
     } catch (error) {
@@ -20,7 +20,7 @@ export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData
     return data
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     async function combineData(url){
       const pageOneData = await fetchData(url, searchId, 1)
       const pageTwoData = await fetchData(url, searchId, 2)
@@ -32,6 +32,28 @@ export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData
       const combinedDataPages = pageOneData
       //sets raw data to now be combinedDataPages
       if(url ==='https://nameless-cliffs-00097.herokuapp.com/category'){
+        async function getSimiarNews() {
+          const similarNewsArticles = {};
+          for (let index = 0; index < 3; index++) {
+            try {
+              let similarNewsData = await fetchData(
+                "https://nameless-cliffs-00097.herokuapp.com/similarnewsdata",
+                searchId,
+                1,
+                combinedDataPages.fetchResult.data[index].uuid
+              );
+              similarNewsArticles[index] = similarNewsData;
+        
+              // Add similar news data to corresponding item in combinedDataPages
+              combinedDataPages.fetchResult.data[index].similarNews = similarNewsData;
+            } catch (error) {
+              console.log(error);
+            }
+          }
+          setSimilarNews(similarNewsArticles);
+          setCombinedNewsData(combinedDataPages);
+        }
+        getSimiarNews()
         setRawData(combinedDataPages)
       }
       else if(url ==='https://nameless-cliffs-00097.herokuapp.com/crawldata'){
@@ -43,6 +65,29 @@ export default function NewsFetch({searchId, setRawData, crawlData, setCrawlData
       combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
     }
   },[searchId])
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   return (null);
