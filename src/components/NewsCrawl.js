@@ -10,6 +10,7 @@ export default function HeadLineCrawl({crawlData}) {
 
     useEffect(()=>{
         if(typeof(crawlData) !== 'undefined'){
+          console.log(crawlData)
             checkingNull()
         }
     },[crawlData])
@@ -19,11 +20,9 @@ export default function HeadLineCrawl({crawlData}) {
           for (let index = 0; index < 40; index++) {
             try {
               if (articleCount >= 30){return}
-              if( typeof(crawlData.fetchResult.data[index].title       ) !== 'undefined'  && 
-              typeof(crawlData.fetchResult.data[index].url       ) !== 'undefined' && 
-              typeof(crawlData.fetchResult.data[index].image_url   ) !== 'undefined' && 
-              typeof(crawlData.fetchResult.data[index].categories !== 'undefined')){
-            articleCount +=1
+              if( typeof(crawlData.fetchResult.data[index].title) !== 'undefined'  && 
+              typeof(crawlData.fetchResult.data[index].url) !== 'undefined'){
+              articleCount +=1
             settingArticles(index,articleCount)
               }
             } catch (error) {
@@ -36,9 +35,7 @@ export default function HeadLineCrawl({crawlData}) {
        const obj = {
          id: [index],
          headLine: crawlData.fetchResult.data[index].title,
-         imageThumbnail: crawlData.fetchResult.data[index].image_url,
          link: crawlData.fetchResult.data[index].url,
-         category: crawlData.fetchResult.data[index].categories
        }
         articleArray[articleCount] = obj
         setArticle(articleArray)

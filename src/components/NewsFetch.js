@@ -24,6 +24,7 @@ export default function NewsFetch({searchId, crawlData, setCrawlData,setArticleB
     async function combineData(url){
       const pageOneData = await fetchData(url, searchId, 1)
       const pageTwoData = await fetchData(url, searchId, 2)
+      console.log(pageOneData)
       //this combines page one and page two
       const multipageData = pageTwoData.fetchResult.data.concat(pageOneData.fetchResult.data)
       //the takes the pages(array) from both fetches and combines them into one object
@@ -80,13 +81,16 @@ export default function NewsFetch({searchId, crawlData, setCrawlData,setArticleB
         getSimiarNews()
       }
       else if(url ==='https://nameless-cliffs-00097.herokuapp.com/crawldata'){
+      //else if(url ==='http://localhost:8000/crawldata'){
         setCrawlData(combinedDataPages)
       }
     }
     combineData('https://nameless-cliffs-00097.herokuapp.com/category')
     if(typeof(crawlData) === 'undefined'){
-      combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
+      //localhost:8000
     }
+    //combineData('http://localhost:8000/crawldata')
+    combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
   },[searchId])
 
 
