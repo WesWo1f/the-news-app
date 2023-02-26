@@ -10,7 +10,7 @@ function SetNews({setSearchId}) {
     useEffect(() => { 
 
         if (typeof(id) === "undefined"){
-            setSearchId('trending')
+            setSearchId('general')
         }
         else{
             setSearchId(id)

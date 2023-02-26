@@ -22,8 +22,8 @@ export default function NewsFetch({searchId, crawlData, setCrawlData,setArticleB
 
   useEffect(() => {
     async function combineData(url){
-      const pageOneData = await fetchData(url, searchId, 1)
-      const pageTwoData = await fetchData(url, searchId, 2)
+      let pageOneData = await fetchData(url, searchId, 1)
+      let pageTwoData = await fetchData(url, searchId, 2)
       //this combines page one and page two
       const multipageData = pageTwoData.fetchResult.data.concat(pageOneData.fetchResult.data)
       //the takes the pages(array) from both fetches and combines them into one object
@@ -85,36 +85,9 @@ export default function NewsFetch({searchId, crawlData, setCrawlData,setArticleB
     }
     combineData('https://nameless-cliffs-00097.herokuapp.com/category')
     if(typeof(crawlData) === 'undefined'){
-      combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
     }
+    combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
   },[searchId])
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (null);
 }
 
