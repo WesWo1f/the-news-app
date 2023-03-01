@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "../styles/displayNews.css"
 import Card from 'react-bootstrap/Card';
          
-export default function DisplayNews({searchId, articleBlock, newsBlocks}) {
+export default function DisplayNews({searchId, newsBlocks}) {
   if(typeof(newsBlocks) !== 'undefined'){
     console.log(newsBlocks)
   return (

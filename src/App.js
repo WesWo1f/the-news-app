@@ -10,22 +10,21 @@ import './styles/styling.css'
 
 
 function App() {
-  const [searchId, setSearchId] = useState('general');
+  const [searchId, setSearchId] = useState();
   const [crawlData, setCrawlData] = useState();
-  const [articleBlock, setArticleBlock] = useState();
   const [newsBlocks, setNewsBlocks] = useState();
   
 
   return (
     <>
-    <NewsFetch searchId={searchId} crawlData={crawlData} setCrawlData={setCrawlData}  setArticleBlock={setArticleBlock} setNewsBlocks={setNewsBlocks} />
+    <NewsFetch searchId={searchId} crawlData={crawlData} setCrawlData={setCrawlData} setNewsBlocks={setNewsBlocks} />
     <NewsNavbar setSearchId={setSearchId} />
     <NewsCrawl crawlData={crawlData}/>
     <Routes >
     <Route path="/" element={<SetNews  setSearchId={setSearchId}/> } />
     <Route path="/newspage/:id" element={<SetNews  setSearchId={setSearchId}/> } />
     </Routes>
-    <DisplayNews  searchId={searchId} articleBlock={articleBlock} newsBlocks={newsBlocks} />
+    <DisplayNews  searchId={searchId} newsBlocks={newsBlocks} />
     </>
   );
 }

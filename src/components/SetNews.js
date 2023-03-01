@@ -5,8 +5,6 @@ function SetNews({setSearchId}) {
     const { id } = useParams()
   
 
-
-
     useEffect(() => { 
 
         if (typeof(id) === "undefined"){
@@ -16,10 +14,6 @@ function SetNews({setSearchId}) {
             setSearchId(id)
         }
     },[id])
-
-  
-
-
 
     return (null);
 }
