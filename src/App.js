@@ -3,7 +3,6 @@ import NewsNavbar from './components/NewsNavbar';
 import NewsFetch from './components/NewsFetch';
 import SetNews from './components/SetNews';
 import DisplayNews from './components/DisplayNews';
-import DataChecker from './components/DataChecker'
 import NewsCrawl from './components/NewsCrawl'
 import { useState } from 'react';
 import { Route, Routes } from "react-router-dom";
