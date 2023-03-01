@@ -36,23 +36,26 @@ export default function HeadLineCrawl({crawlData}) {
          id: [index],
          headLine: crawlData.fetchResult.data[index].title,
          link: crawlData.fetchResult.data[index].url,
+         source: crawlData.fetchResult.data[index].source
        }
         articleArray[articleCount] = obj
         setArticle(articleArray)
     }
-
   if(article.length >= 6){
-    const theTickerText = article.map((news, index) => (
-        <a key={index}  href={news.link} className='text-crawl' target="_blank" rel="noopener noreferrer">{news.headLine}, </a>
-     ))
+  const theTickerText = article.map((news, index) => (
+    <a key={index} href={news.link ? news.link : '#'} className='text-crawl' target="_blank" rel="noopener noreferrer">
+      {news.headLine}{" "}{news.source}{index === article.length - 1 ? '' : ', '}
+    </a>
+  ));
 
-    return (
-        <>
-          <div className="hwrap"><div className="hmove">
-          <div className="hitem">{theTickerText}</div>
-          </div></div>
-        </>
-      )
-  }
+return (
+  <>
+    <div className="hwrap">
+      <div className="hmove">
+        <div className="hitem">{theTickerText}</div>
+      </div>
+    </div>
+  </>
+)
 
-}
+}}

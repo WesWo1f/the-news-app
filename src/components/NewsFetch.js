@@ -24,16 +24,20 @@ export default function NewsFetch({searchId, crawlData, setCrawlData, setNewsBlo
   useEffect(()=>{
       //   //combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
   //   combineData('http://localhost:8000/crawldata')
-
+    console.log("this is searchId"+searchId)
     async function callingTest(){
+      console.log("called test server!")
       //('https://nameless-cliffs-00097.herokuapp.com/category')
-      let testData = await fetchData("http://localhost:8000/test", searchId, 1)
-      console.log(testData)
-      setNewsBlocks(testData)
+      let pageOne = await fetchData("http://localhost:8000/newsendpoint", searchId, 1)
+      let pageTwo = await fetchData("http://localhost:8000/newsendpoint", searchId, 2)
+      const newData = {pageOne, pageTwo} 
+      console.log(newData)
+      setNewsBlocks(newData)
     }
-    callingTest()
+    if(typeof(searchId) !== 'undefined'){
+      callingTest()
+    }
   },[searchId])
-
 
   useEffect(() => {
     if(typeof(crawlData) === 'undefined'){
