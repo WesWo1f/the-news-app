@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function NewsFetch({searchId, crawlData, setCrawlData,setArticleBlock}) {
+export default function NewsFetch({searchId, crawlData, setCrawlData, setNewsBlocks}) {
 
   async function fetchData(url, id, page, newsUuid) {
     let data = {}
@@ -20,74 +20,31 @@ export default function NewsFetch({searchId, crawlData, setCrawlData,setArticleB
     return data
   }
 
-  useEffect(() => {
-    async function combineData(url){
-      let pageOneData = await fetchData(url, searchId, 1)
-      let pageTwoData = await fetchData(url, searchId, 2)
-      //this combines page one and page two
-      const multipageData = pageTwoData.fetchResult.data.concat(pageOneData.fetchResult.data)
-      //the takes the pages(array) from both fetches and combines them into one object
-      pageOneData.fetchResult.data = multipageData
-      //this is just renaming that object to make more sense
-      const combinedDataPages = pageOneData
-      //sets raw data to now be combinedDataPages
-      if(url ==='https://nameless-cliffs-00097.herokuapp.com/category'){
-        async function getSimiarNews() {
-          const similarNewsArticles = {};
-          let size = Object.keys(similarNewsArticles).length;
-          for (let index = 0; index < 10; index++) {
-            if(size <= 2){
-              //console.log(size)
-              try {
-                let similarNewsData = await fetchData(
-                  "https://nameless-cliffs-00097.herokuapp.com/similarnewsdata",
-                  searchId,
-                  1,
-                  combinedDataPages.fetchResult.data[index].uuid
-                );
-                if(similarNewsData.fetchResult.length !== 3){
-                  combinedDataPages.fetchResult.data.splice(index, 1)
-                }
-                else{
-                  similarNewsArticles[index] = similarNewsData;
-                  // Add similar news data to corresponding item in combinedDataPages
-                  combinedDataPages.fetchResult.data[index].similarNews = similarNewsData;
-                  size = Object.keys(similarNewsArticles).length;
-                  //console.log(similarNewsArticles)
-                }
-              } catch (error) {
-              }
-            }
-          }
-          // the following code creates article blocks
-          const blockArticles = {};
-          let num = 0
-           for (let index = 0; index < combinedDataPages.fetchResult.data.length; index++ ) {
-             if(Object.keys(blockArticles).length <= 2){
-              console.log(Object.keys(blockArticles).length)
-              try {
-                console.log(combinedDataPages.fetchResult.data[index].similarNews)
-                 if(typeof(combinedDataPages.fetchResult.data[index].similarNews) !== 'undefined') {
-                   blockArticles[num] = combinedDataPages.fetchResult.data[index]
-                   num += 1 
-                 }
-               } catch (error) {
-               }
-             }
-           }
-           setArticleBlock(blockArticles)
-        }
-        getSimiarNews()
-      }
-      else if(url ==='https://nameless-cliffs-00097.herokuapp.com/crawldata'){
-        setCrawlData(combinedDataPages)
-      }
+
+  useEffect(()=>{
+      //   //combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
+  //   combineData('http://localhost:8000/crawldata')
+
+    async function callingTest(){
+      //('https://nameless-cliffs-00097.herokuapp.com/category')
+      let testData = await fetchData("http://localhost:8000/test", searchId, 1)
+      console.log(testData)
+      setNewsBlocks(testData)
     }
-    combineData('https://nameless-cliffs-00097.herokuapp.com/category')
-    if(typeof(crawlData) === 'undefined'){
-    }
-    combineData('https://nameless-cliffs-00097.herokuapp.com/crawldata')
+    callingTest()
   },[searchId])
-  return (null);
+
+
+  useEffect(() => {
+    if(typeof(crawlData) === 'undefined'){
+      callingCrawl()
+    }
+    async function callingCrawl(){
+      let result = await fetchData("http://localhost:8000/crawldata", searchId, 1)
+      setCrawlData(result)
+    }
+  },[])
+
+return (null);
 }
 

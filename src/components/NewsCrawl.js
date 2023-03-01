@@ -10,7 +10,7 @@ export default function HeadLineCrawl({crawlData}) {
 
     useEffect(()=>{
         if(typeof(crawlData) !== 'undefined'){
-          console.log(crawlData)
+          //console.log(crawlData)
             checkingNull()
         }
     },[crawlData])
