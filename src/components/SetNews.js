@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 
 function SetNews({setSearchId}) {
     const { id } = useParams()
-  
 
     useEffect(() => { 
 
