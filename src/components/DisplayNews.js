@@ -4,7 +4,6 @@ import "../styles/displayNews.css"
 
 export default function DisplayNews({searchId, newsBlocks}) {
   if (typeof(newsBlocks) !== 'undefined') {
-    console.log(newsBlocks);
     return (
       <>
         <div className='news-cards-container'>
