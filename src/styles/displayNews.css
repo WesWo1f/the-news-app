@@ -2,6 +2,8 @@ body {
     background-color: #415A77!important;
 }
 .search-id{
+    display: flex;
+    flex-direction: column;
     color: #E0E1DD;
     font-size: 50px;
     font-weight: bolder;
@@ -10,126 +12,8 @@ body {
 }
 ul {
     list-style-type: none !important;
-    /* border-radius: 25px !important;
-    padding: 0 !important;
-    background-color: #1b263b!important; */
-    
 } 
-/* li {
-    list-style-type: none !important;
-    border-radius: 25px !important;
-    border-style: solid;
 
-} */
-/* .news-cards-container{
-    border-radius: 25px !important;
-    border-style: solid;
-    color: #1b263b !important;
-    background-color: #1b263b !important;
-    margin:0 auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 50% !important;
-    min-width: 400px;
-    align-items: center;
-} */
-/* .container-children {
-    display: flex;
-} */
-/* .article-card{
-    background-color: #1b263b !important;
-    width: 250px;
-    display: flex;
-    border-radius: 25px !important;
-    border: grey !important;
-}
-.article-source{
-    font-size: smaller !important;
-    width:200px;
-    display:block;
-} */
-/* .article-title{
-    font-size: large !important;
-    width:200px;
-    text-align:center;
-    display:block;
-    color: whitesmoke  !important;
-    color:inherit !important;
-} */
-
-/* .article-image {
-    padding-left: 10px;
-    background-color: #1b263b !important;
-    height: 170px !important;
-    width: 250px !important;
-    border-radius: 25px !important;
-    border: grey !important;
-    float: left;
-} */
-
-/* .article-link {
-    color: aliceblue;
-    border-radius: 25px !important;
-    text-decoration: none !important;
-} */
-.solid {
-    border-top: 3px solid #415A77!important;
-}
-
-/* .similar-news-container{
-    flex: 1;
-    padding-left: 20px;
-    flex-direction: column;
-} */
-/* .simlar-news{
-    flex-wrap: wrap;
-    color: white;
-    padding-top: 15px;
-    padding-left: 30px;
-} */
-
-/* @media screen and (max-width: 1024px) {
-    .similar-news-container{
-        display: none !important;
-    }
-    .news-cards-container{
-        color: #1b263b !important;
-        background-color: #1b263b!important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-} */
-
-
-
-/* .article-container {
-    display: flex;
-    align-items: center;
-}
-  
-  .article-image {
-    width: 200px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 25px !important;
-}
-  
-  .article-info {
-    display: flex;
-    flex-direction: column;
-}
-  
-  .article-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-  
-  .article-description {
-    font-size: 16px;
-    margin-bottom: 10px;
-} */
 
 .news-cards-container {
     background-color:#1b263b!important;
@@ -147,16 +31,15 @@ ul {
     }
   }
 
-
 .article-container {
     display: flex;
     align-items: center;
   }
   
   .article-image {
-    width: 200px;
-    height: auto;
-    margin-right: 20px;
+    width: 200px !important;
+    height: 170px !important;
+    margin-right: 20px !important;
     border-radius: 25px !important;
   }
   

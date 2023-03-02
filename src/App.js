@@ -6,14 +6,11 @@ import DisplayNews from './components/DisplayNews';
 import NewsCrawl from './components/NewsCrawl'
 import { useState } from 'react';
 import { Route, Routes } from "react-router-dom";
-import './styles/styling.css'
-
 
 function App() {
   const [searchId, setSearchId] = useState();
   const [crawlData, setCrawlData] = useState();
   const [newsBlocks, setNewsBlocks] = useState();
-  
 
   return (
     <>
