@@ -15,14 +15,16 @@ export default function DisplayNews({searchId, newsBlocks}) {
               return (
                 <li key={article.url}>
                   <hr className="solid"></hr>
+                  <a href={article.url} className='article-link' target="_blank" rel="noopener noreferrer">
                   <div className='article-container'>
                     <img  className='article-image' src={article.image_url} />
                     <div className='article-info'>
-                      <div className='article-source'>{article.source}</div>
+                      <div  className='article-source'>{article.source}</div>
                       <div className='article-title'>{article.title}</div>
                       <div className='article-description'>{article.description}</div>
                     </div>
                   </div>
+                  </a>
                 </li> 
               );
             })}
