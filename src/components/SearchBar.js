@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
 import Form from 'react-bootstrap/Form';
-
-export default function SearchBar({ setSearchId }) {
+export default function SearchBar({setSearchId}) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,9 +19,5 @@ export default function SearchBar({ setSearchId }) {
     </Form.Group>
     </Form>
     </>
-
   )
-
-
-
 }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 export default function NewsFetch({searchId, crawlData, setCrawlData, setNewsBlocks}) {
-  
+
   async function fetchData(url, id = null, page, searchBar) {
     let data = {}
     try {
@@ -29,14 +29,12 @@ export default function NewsFetch({searchId, crawlData, setCrawlData, setNewsBlo
     console.log("this is searchId"+searchId)
     async function navbarCategorySearch(){
       if (['general', 'science', 'tech', 'sports','travel','entertainment','politics','business'].includes(searchId)) {
-        //let pageOne = await fetchData("https://nameless-cliffs-00097.herokuapp.com/newsendpoint", searchId, 1)
-        let pageOne = await fetchData("http://localhost:8000/newsendpoint", searchId, 1)
+        let pageOne = await fetchData("https://nameless-cliffs-00097.herokuapp.com/newsendpoint", searchId, 1)
         const newData = {pageOne} 
         setNewsBlocks(newData)
       }
       else{
-        //let pageOne = await fetchData("https://nameless-cliffs-00097.herokuapp.com/newsendpoint", null, 1, searchId)
-        let pageOne = await fetchData("http://localhost:8000/newsendpoint", null, 1, searchId)
+        let pageOne = await fetchData("https://nameless-cliffs-00097.herokuapp.com/newsendpoint", null, 1, searchId)
         const newData = {pageOne} 
         setNewsBlocks(newData)
       }

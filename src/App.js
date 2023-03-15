@@ -6,7 +6,6 @@ import DisplayNews from './components/DisplayNews';
 import NewsCrawl from './components/NewsCrawl'
 import { useState } from 'react';
 import { Route, Routes } from "react-router-dom";
-import SearchBar from './components/SearchBar';
 
 function App() {
   const [searchId, setSearchId] = useState();
@@ -17,7 +16,6 @@ function App() {
     <>
     <NewsFetch searchId={searchId} crawlData={crawlData} setCrawlData={setCrawlData} setNewsBlocks={setNewsBlocks} />
     <NewsNavbar setSearchId={setSearchId} />
-    <SearchBar setSearchId={setSearchId} />
     <NewsCrawl crawlData={crawlData}/>
     <Routes >
     <Route path="/" element={<SetNews  setSearchId={setSearchId}/> } />
