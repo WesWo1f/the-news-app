@@ -1,6 +1,4 @@
 
-
-
 .navbar-container {
     color: white;
     text-align: center !important;
@@ -20,9 +18,6 @@
     vertical-align: middle !important;
 }
 
-.nav-link{
-    color: white !important;
-}
 .logo {
     object-fit: cover ;
     scale: 1.5;
@@ -30,5 +25,16 @@
     width: 150px;
     height: 150px;
     overflow: hidden !important;
+} 
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
-  
+.search-bar {
+    margin-left: 40px;
+    margin-right: 40px;
+    justify-content: center;
+} 
