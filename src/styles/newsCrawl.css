@@ -39,5 +39,10 @@
   text-decoration: underline !important;
 }
 
-
+@media screen and (max-width: 768px) {
+  @keyframes tickerh {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-3000%, 0, 0); } 
+  }
+}
 
