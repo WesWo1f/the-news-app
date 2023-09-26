@@ -29,12 +29,12 @@ export default function NewsFetch({searchId, crawlData, setCrawlData, setNewsBlo
     console.log("this is searchId"+searchId)
     async function navbarCategorySearch(){
       if (['general', 'science', 'tech', 'sports','travel','entertainment','politics','business'].includes(searchId)) {
-        let pageOne = await fetchData("https://nameless-cliffs-00097.herokuapp.com/newsendpoint", searchId, 1)
+        let pageOne = await fetchData("https://horror-movie-app-server-f55a090ce3b2.herokuapp.com/newsendpoint", searchId, 1)
         const newData = {pageOne} 
         setNewsBlocks(newData)
       }
       else{
-        let pageOne = await fetchData("https://nameless-cliffs-00097.herokuapp.com/newsendpoint", null, 1, searchId)
+        let pageOne = await fetchData("https://horror-movie-app-server-f55a090ce3b2.herokuapp.com/newsendpoint", null, 1, searchId)
         const newData = {pageOne} 
         setNewsBlocks(newData)
       }
@@ -49,7 +49,7 @@ export default function NewsFetch({searchId, crawlData, setCrawlData, setNewsBlo
       callingCrawl()
     }
     async function callingCrawl(){
-      let result = await fetchData('https://nameless-cliffs-00097.herokuapp.com/crawldata', searchId, 1)
+      let result = await fetchData('https://horror-movie-app-server-f55a090ce3b2.herokuapp.com/crawldata', searchId, 1)
       setCrawlData(result)
     }
   },[])

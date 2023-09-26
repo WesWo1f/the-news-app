@@ -1,16 +1,38 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import "../styles/displayNews.css"
 
 export default function DisplayNews({searchId, newsBlocks}) {
+  const [newslist, setNewsList] = useState();
 
-  if(typeof(newsBlocks) !== 'undefined'){
-    console.log(newsBlocks)
+  useEffect(() => {
+    if(newsBlocks !== undefined && newsBlocks !== null){
+      //testing below
+ 
+
+
+      //testing above
+
+      let myTest = newsBlocks.pageOne.fetchResult.data
+      let filterList = []
+      for (let index = 0; index < myTest.length; index++) {
+        if(!myTest[index].image_url.includes('movers') && !myTest[index].image_url.includes('default') && !myTest[index].image_url.includes('logo-bg')){
+          filterList.push(myTest[index])
+        }
+      }
+      console.log(filterList)
+      setNewsList(filterList)
+    }
+  }, [newsBlocks])
+
+  if(typeof(newslist) !== 'undefined'){
     return (
       <>
         <div className='news-cards-container'>
           <div className='search-id'>{searchId}</div> 
           <ul>
-            {newsBlocks.pageOne.fetchResult.data.map((article, index) => {
+            {newslist.map((article, index) => {
               return (
                 <li key={article.url}>
                   <hr className="solid"></hr>
