@@ -4,58 +4,49 @@ import { useState } from 'react'
 
 
 export default function HeadLineCrawl({crawlData}) {
-
-    const articleArray = []
+   
     const [article, setArticle] = useState([]);
 
     useEffect(()=>{
         if(typeof(crawlData) !== 'undefined'){
-          //console.log(crawlData)
-            checkingNull()
+            createCrawlList()
+        }
+        function createCrawlList() {
+          let myList = [];
+        
+          if (crawlData && crawlData.fetchResult && crawlData.fetchResult.data) {
+            for (let index = 0; index < crawlData.fetchResult.data.length; index++) {
+              const dataItem = crawlData.fetchResult.data[index];
+        
+              if (dataItem && dataItem.title && dataItem.url && dataItem.source) {
+                const obj = {
+                  headLine: dataItem.title,
+                  link: dataItem.url,
+                  source: dataItem.source,
+                };
+                myList.push(obj);
+              }
+            }
+          }
+          setArticle(myList);
         }
     },[crawlData])
 
-    function checkingNull(){
-        let articleCount = 0
-          for (let index = 0; index < 40; index++) {
-            try {
-              if (articleCount >= 30){return}
-              if( typeof(crawlData.fetchResult.data[index].title) !== 'undefined'  && 
-              typeof(crawlData.fetchResult.data[index].url) !== 'undefined'){
-              articleCount +=1
-            settingArticles(index,articleCount)
-              }
-            } catch (error) {
-              //console.log("checkingNull error")
-            }
-          }
-      } 
+    if(article.length >= 6){
+    const theTickerText = article.map((news, index) => (
+      <a key={index} href={news.link ? news.link : '#'} className='text-crawl' target="_blank" rel="noopener noreferrer">
+        {news.headLine}{" "}{news.source}{index === article.length - 1 ? '' : ', '}
+      </a>
+    ));
 
-      function settingArticles(index,articleCount){
-       const obj = {
-         id: [index],
-         headLine: crawlData.fetchResult.data[index].title,
-         link: crawlData.fetchResult.data[index].url,
-         source: crawlData.fetchResult.data[index].source
-       }
-        articleArray[articleCount] = obj
-        setArticle(articleArray)
-    }
-  if(article.length >= 6){
-  const theTickerText = article.map((news, index) => (
-    <a key={index} href={news.link ? news.link : '#'} className='text-crawl' target="_blank" rel="noopener noreferrer">
-      {news.headLine}{" "}{news.source}{index === article.length - 1 ? '' : ', '}
-    </a>
-  ));
-
-return (
-  <>
-    <div className="hwrap">
-      <div className="hmove">
-        <div className="hitem">{theTickerText}</div>
-      </div>
-    </div>
-  </>
-)
+    return (
+      <>
+        <div className="hwrap">
+          <div className="hmove">
+            <div className="hitem">{theTickerText}</div>
+          </div>
+        </div>
+      </>
+    )
 
 }}

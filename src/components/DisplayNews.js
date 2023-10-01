@@ -8,23 +8,22 @@ export default function DisplayNews({searchId, newsBlocks}) {
 
   useEffect(() => {
     if(newsBlocks !== undefined && newsBlocks !== null){
-      //testing below
- 
-
-
-      //testing above
-
-      let myTest = newsBlocks.pageOne.fetchResult.data
-      let filterList = []
-      for (let index = 0; index < myTest.length; index++) {
-        if(!myTest[index].image_url.includes('movers') && !myTest[index].image_url.includes('default') && !myTest[index].image_url.includes('logo-bg')){
-          filterList.push(myTest[index])
-        }
-      }
-      console.log(filterList)
-      setNewsList(filterList)
+      let newsDataArray = newsBlocks.pageOne.fetchResult.data.filter((user) =>
+      !(
+        user.image_url.includes("default") ||
+        user.image_url.includes("logo-bg") ||
+        user.image_url.includes("movers") ||
+        user.image_url.includes("logo") 
+      )
+    );
+      setNewsList(newsDataArray)
     }
   }, [newsBlocks])
+
+  function deleteBadImageStory(uuidNumber){
+    let filteredList = newslist.filter(number => number.uuid !== uuidNumber.toString());
+    setNewsList(filteredList)
+  }
 
   if(typeof(newslist) !== 'undefined'){
     return (
@@ -33,16 +32,25 @@ export default function DisplayNews({searchId, newsBlocks}) {
           <div className='search-id'>{searchId}</div> 
           <ul>
             {newslist.map((article, index) => {
+              
+              const {source, image_url, url, title, description, uuid} = article
               return (
-                <li key={article.url}>
+                <li key={url}>
                   <hr className="solid"></hr>
-                  <a href={article.url} className='article-link' target="_blank" rel="noopener noreferrer">
+                  <a href={url} className='article-link' target="_blank" rel="noopener noreferrer">
                   <div className='article-container'>
-                    <img  className='article-image' src={article.image_url} />
+                            {image_url && (
+                        <img
+                          alt=''
+                          className='article-image'
+                          src={image_url}
+                          onError={() => {deleteBadImageStory(uuid)}}
+                        />
+                      )}
                       <div className='article-info'>
-                      <div className='article-source'>{article.source}</div>
-                      <div className='article-title'>{article.title}</div>
-                      <div className='article-description'>{article.description}</div>
+                      <div className='article-source'>{source}</div>
+                      <div className='article-title'>{title}</div>
+                      <div className='article-description'>{description}</div>
                     </div>
                   </div>
                   </a>
