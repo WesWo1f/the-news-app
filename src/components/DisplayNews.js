@@ -8,21 +8,11 @@ export default function DisplayNews({searchId, newsBlocks}) {
 
   useEffect(() => {
     if(newsBlocks !== undefined && newsBlocks !== null){
-      //testing below
- 
-
-
-      //testing above
-
-      let myTest = newsBlocks.pageOne.fetchResult.data
-      let filterList = []
-      for (let index = 0; index < myTest.length; index++) {
-        if(!myTest[index].image_url.includes('movers') && !myTest[index].image_url.includes('default') && !myTest[index].image_url.includes('logo-bg')){
-          filterList.push(myTest[index])
-        }
-      }
-      console.log(filterList)
-      setNewsList(filterList)
+      const defaultImages = ['default','logo-bg','movers']
+      let newsDataArray = newsBlocks.pageOne.fetchResult.data
+      
+      newsDataArray = newsDataArray.filter(word => !defaultImages.includes(word));
+      setNewsList(newsDataArray)
     }
   }, [newsBlocks])
 
@@ -33,16 +23,17 @@ export default function DisplayNews({searchId, newsBlocks}) {
           <div className='search-id'>{searchId}</div> 
           <ul>
             {newslist.map((article, index) => {
+              const {source, image_url, url, title, description} = article
               return (
-                <li key={article.url}>
+                <li key={url}>
                   <hr className="solid"></hr>
-                  <a href={article.url} className='article-link' target="_blank" rel="noopener noreferrer">
+                  <a href={url} className='article-link' target="_blank" rel="noopener noreferrer">
                   <div className='article-container'>
-                    <img  className='article-image' src={article.image_url} />
+                    <img  className='article-image' src={image_url} />
                       <div className='article-info'>
-                      <div className='article-source'>{article.source}</div>
-                      <div className='article-title'>{article.title}</div>
-                      <div className='article-description'>{article.description}</div>
+                      <div className='article-source'>{source}</div>
+                      <div className='article-title'>{title}</div>
+                      <div className='article-description'>{description}</div>
                     </div>
                   </div>
                   </a>

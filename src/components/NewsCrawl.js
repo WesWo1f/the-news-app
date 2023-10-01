@@ -40,13 +40,14 @@ export default function HeadLineCrawl({crawlData}) {
        }
         articleArray[articleCount] = obj
         setArticle(articleArray)
-    }
-  if(article.length >= 6){
-  const theTickerText = article.map((news, index) => (
-    <a key={index} href={news.link ? news.link : '#'} className='text-crawl' target="_blank" rel="noopener noreferrer">
-      {news.headLine}{" "}{news.source}{index === article.length - 1 ? '' : ', '}
-    </a>
-  ));
+      }
+      
+    if(article.length >= 6){
+    const theTickerText = article.map((news, index) => (
+      <a key={index} href={news.link ? news.link : '#'} className='text-crawl' target="_blank" rel="noopener noreferrer">
+        {news.headLine}{" "}{news.source}{index === article.length - 1 ? '' : ', '}
+      </a>
+    ));
 
 return (
   <>
