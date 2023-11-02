@@ -8,6 +8,7 @@ export default function DisplayNews({ searchId, newsBlocks }) {
   
   useEffect(() => {
     if (newsBlocks !== undefined && newsBlocks !== null) {
+      console.log(newsBlocks)
       let newsDataArray = newsBlocks.pageOne.fetchResult.data.filter(
         (user) =>
           !(
@@ -31,7 +32,7 @@ export default function DisplayNews({ searchId, newsBlocks }) {
     const { source, image_url, url, title, description, uuid } = newsData;
         return (
           <li key={url}>
-            <hr className="solid"></hr>
+            <hr className="line-break"></hr>
             <a
               href={url}
               className="article-link"
@@ -39,16 +40,17 @@ export default function DisplayNews({ searchId, newsBlocks }) {
               rel="noopener noreferrer"
             >
               <div className="article-container">
+                <div className="image-container">
                   <img
                     alt=""
-                    className="article-image"
                     src={image_url}
                     onError={() => {
                      deleteBadImageStory(uuid);
                     }}
                   />
+                  <p>{source}</p>
+                </div>
                 <div className="article-info">
-                  <div className="article-source">{source}</div>
                   <div className="article-title">{title}</div>
                   <div className="article-description">{description}</div>
                 </div>

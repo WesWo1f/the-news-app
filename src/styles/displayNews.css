@@ -10,72 +10,90 @@ body {
     text-align: center;
     text-transform: capitalize;
 }
+.line-break {
+  border: 3px solid black;
+  border-radius: 25px;
+}
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none !important;
+}
+
 ul {
-    list-style-type: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style-type: none !important;
 } 
 
 .news-cards-container {
-    background-color:#1b263b!important;
-    border-radius: 12px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 900px;
-  }
+  background-color:#1b263b!important;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+}
   
   @media screen and (max-width: 768px) {
-    .news-cards-container {
-      padding: 10px;
-      margin: 10px auto;
-    }
+  .news-cards-container {
+    padding: 10px;
+    margin: 10px auto;
   }
+}
 
 .article-container {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.image-container{
+  align-items: center; 
+  align-self:center;
+}
+.image-container p{
+  color: #E0E1DD;
+  text-align: left;
+}
+
+.image-container img{
+  object-fit:scale-down;  
+  width: 260px ; 
+  text-align: center;
+}
+
+.article-info {
+  align-self:center;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
   
-  .article-image {
-    width: 260px !important;
-    height: 230px !important;
-    margin-right: 20px !important;
-    border-radius: 25px !important;
-  }
-  
-  .article-info {
-    display: flex;
+.article-title {
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.article-link {
+  text-decoration: none !important;
+}
+
+.article-description {
+  color: whitesmoke  !important;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .article-container {
     flex-direction: column;
+    align-items: flex-start;
   }
-  
+
   .article-title {
-    color: whitesmoke  !important;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .article-link {
-    text-decoration: none !important;
-  }
-  
-  .article-description {
-    color: whitesmoke  !important;
     font-size: 16px;
-    margin-bottom: 10px;
   }
-  
-  @media screen and (max-width: 768px) {
-    .article-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .article-image {
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
-  
-    .article-title {
-        
-      font-size: 16px;
-    }
-  }
+}
