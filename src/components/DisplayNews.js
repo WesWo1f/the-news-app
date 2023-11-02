@@ -8,7 +8,6 @@ export default function DisplayNews({ searchId, newsBlocks }) {
   
   useEffect(() => {
     if (newsBlocks !== undefined && newsBlocks !== null) {
-      console.log(newsBlocks)
       let newsDataArray = newsBlocks.pageOne.fetchResult.data.filter(
         (user) =>
           !(
